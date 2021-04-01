@@ -40,6 +40,8 @@ import androidx.core.app.ActivityCompat;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
+import static android.view.View.*;
+
 /**
  * A Google Cardboard VR NDK sample application.
  *
@@ -94,7 +96,7 @@ public class VrActivity extends AppCompatActivity implements PopupMenu.OnMenuIte
     View decorView = getWindow().getDecorView();
     decorView.setOnSystemUiVisibilityChangeListener(
         (visibility) -> {
-          if ((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0) {
+          if ((visibility & SYSTEM_UI_FLAG_FULLSCREEN) == 0) {
             setImmersiveSticky();
           }
         });
@@ -237,12 +239,12 @@ public class VrActivity extends AppCompatActivity implements PopupMenu.OnMenuIte
     getWindow()
         .getDecorView()
         .setSystemUiVisibility(
-            View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                | View.SYSTEM_UI_FLAG_FULLSCREEN
-                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+            SYSTEM_UI_FLAG_LAYOUT_STABLE
+                | SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                | SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                | SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                | SYSTEM_UI_FLAG_FULLSCREEN
+                | SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
   }
 
   private native long nativeOnCreate(AssetManager assetManager);
